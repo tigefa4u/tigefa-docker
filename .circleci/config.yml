@@ -7,7 +7,10 @@ jobs:
       - checkout
       - run:
           name: Install and Update Packages
-          command: apt update && apt upgrade -yqq && apt install -yqq sudo curl wget netcat whois figlet apt-utils
+          command: apt update && apt upgrade -yqq && apt install -yqq sudo curl wget netcat whois figlet apt-utils software-properties-common
+          command: sudo add-apt-repository ppa:certbot/certbot -y
+          command: sudo apt-get update
+          command: sudo apt-get install -y python-certbot-apache
       - run:
           name: Print the Current Time
           command: date
