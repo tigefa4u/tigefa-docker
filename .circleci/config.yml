@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install and Update Packages
-          command: apt update && apt install -yqq sudo curl wget netcat whois figlet
+          command: apt update && apt upgrade -yqq && apt install -yqq sudo curl wget netcat whois figlet
       - run:
           name: Print the Current Time
           command: date
