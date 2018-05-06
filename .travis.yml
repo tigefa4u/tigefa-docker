@@ -1,0 +1,27 @@
+sudo: required
+language: generic
+git:
+  depth: 5
+services:
+- docker
+addons:
+  apt:
+    packages:
+    - curl
+    - figlet
+before_install:
+- docker build -t tigefa/tigefa-nightly .
+script:
+- date && time ./trigger_docker_builds.sh
+after_script:
+  - figlet TIGEFA
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
+notifications:
+  email: false
+  hipchat:
+    rooms:
+      secure: MmvwkNwSKN06RS/mpExVh/AhoNFV5TsOVxgty5FJOHK1/8zYZZCAnkl4W4lfqMWwr9oIvy30DNLk+45+FiCb3Ad4mvnqknFZz2VjEzCF5IpyVRie9HX+ovZ2FwQ3auHDH1N6kv7JYEGYJnwb7PT4IinOAglKMAF7Bgpv8WnCVz6V83MQVazL5kV3VXMcI6AfqDD3vBdtB0sue/RmvgLlJD+d+6713FRqvh3RPuXhmJwOfmfQ5mSuIOF9BF7ixS8DyYxHM0LD7oIAzlH2FQ5j+5PIq7mrq9A0H1+mWQG0C7MNKT8Kog3SCvxJRt1IjTpqjoyuV/RW4w09/jf3E/fJqKtgQnWLqDIviTMMhFmUGq0zoh4geoS1d5vgzGCCPe2ZrpeSHuqnDYPAZpcHu5rPDY19Mb5aAabvUolv8E5TnORMq+eEMIZ10yafBSumAwlbr2Um1oH/1tCgJrAyOLniMBMOSHBchcjgNHKEGxtf5vJyYNx35wF9ewezszKSPQN2ZDKRJ8g8ECGmGr4ShnQOs7utyzFIZnb3+5ujJX+5Akj/3MRQM/msRrEX9JnoDSNb/hAxZXtyRcG+Tv4Q3RxYyO27WMzG7+rrK9jJpT8fglBBLJ0SkAw9dctw85wTmBmwGkawO12hgYw9gK9tMASnI7/fSWVn+n/JjOeBMacksAE=
