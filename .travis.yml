@@ -1,25 +1,27 @@
 sudo: required
+
 language: generic
-git:
-  depth: 5
+
 services:
-- docker
-addons:
-  apt:
-    packages:
-    - curl
-    - figlet
+  - docker
+
 before_install:
-- docker build -t tigefa/tigefa-nightly .
+  - sudo apt-get update -qq
+  - sudo apt-get install -y -qq curl figlet
+  - docker build -t tigefa/tigefa-nightly .
+
 script:
-- date && time ./trigger_docker_builds.sh
+  - date && time ./trigger_docker_builds.sh
+
 after_script:
   - figlet TIGEFA
+
 deploy:
   provider: script
   script: bash docker_push
   on:
     branch: master
+
 notifications:
   email: false
   hipchat:
