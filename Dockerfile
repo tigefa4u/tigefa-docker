@@ -8,7 +8,7 @@ FROM phusion/baseimage:0.10.1
 CMD ["/sbin/my_init"]
 
 # ...put your own build instructions here...
-RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
+RUN apt-get update && apt install -y -qq sudo && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 RUN sudo add-apt-repository ppa:chris-lea/redis-server -y
 RUN sudo add-apt-repository ppa:brightbox/ruby-ng -y
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
