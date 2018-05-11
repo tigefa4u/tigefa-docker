@@ -11,9 +11,12 @@ CMD ["/sbin/my_init"]
 RUN apt-get update && apt install -y -qq sudo && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 RUN sudo add-apt-repository ppa:chris-lea/redis-server -y
 RUN sudo add-apt-repository ppa:brightbox/ruby-ng -y
-RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
-RUN apt install -y -qq redis-server ruby2.5 ruby2.5-dev
-RUN apt install -y -qq ruby ruby-dev ruby-switch
+RUN sudo apt-get update && sudo apt-get upgrade -y -o Dpkg::Options::="--force-confold"
+RUN sudo apt-get install -y -qq redis-server ruby2.5 ruby2.5-dev
+RUN sudo apt-get install -y -qq ruby ruby-dev ruby-switch
+RUN ruby -v
+RUN gem -v
+
 # watermark 
 RUN apt install -y figlet
 RUN figlet TIGEFA
