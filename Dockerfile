@@ -7,7 +7,7 @@ FROM phusion/baseimage:0.10.1
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-# ...put your own build instructions here...
+# requirements
 RUN apt-get update && apt install -y -qq sudo && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 RUN sudo add-apt-repository ppa:chris-lea/redis-server -y
 RUN sudo add-apt-repository ppa:brightbox/ruby-ng -y
@@ -18,7 +18,7 @@ RUN ruby -v
 RUN gem -v
 
 # watermark 
-RUN apt install -y figlet
+RUN sudo apt-get install -y figlet
 RUN figlet TIGEFA
 
 # Clean up APT when done.
