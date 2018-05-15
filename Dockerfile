@@ -48,7 +48,7 @@ RUN sudo apt-get build-dep -y aria2 php hhvm
 RUN sudo apt-get install -y landscape*
 RUN sudo apt-get install -y coreutils util-linux bsdutils file openssl ca-certificates ssh wget patch sudo htop dstat vim nano tmux curl git jq realpath zsh ksh xz-utils build-essential bash-completion
 RUN sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
-RUN sudo apt-get install -y cmake gcc g++ pkg-config ragel libasound2-dev libssl-dev libglib2.0-dev libpango1.0-dev libgl1-mesa-dev libevent-dev libgtk2.0-dev libxrandr-dev libxrender-dev libxcursor-dev libv4l-dev libgles2-mesa-dev libavcodec-dev libva-dev libvdpau-dev libdrm-dev libicu-dev libpulse-dev libjack-jackd2-dev libsoxr-dev libglew-dev libglewmx-dev
+RUN sudo apt-get install -y cmake gcc g++ pkg-config ragel libasound2-dev libssl-dev libglib2.0-dev libpango1.0-dev libgl1-mesa-dev libevent-dev libgtk-3-dev libgtk2.0-dev libxrandr-dev libxrender-dev libxcursor-dev libv4l-dev libgles2-mesa-dev libavcodec-dev libva-dev libvdpau-dev libdrm-dev libicu-dev libpulse-dev libjack-jackd2-dev libsoxr-dev libglew-dev libglewmx-dev
 RUN sudo apt-get install -y libboost-dev libgtkmm-3.0-dev libglibmm-2.4-dev libsqlite3-dev libjemalloc-dev libdmalloc-dev libgoogle-perftools-dev libexpat1-dev libgcrypt11-dev libgcrypt20-dev libcrypto++-dev libuv1-dev
 RUN echo "postfix postfix/mailname string example.com" | debconf-set-selections
 RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
