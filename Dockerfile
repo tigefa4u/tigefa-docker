@@ -19,7 +19,7 @@ RUN sudo add-apt-repository ppa:dominik-stadler/subversion-1.9 -y
 RUN sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 RUN sudo add-apt-repository ppa:longsleep/golang-backports -y
 RUN sudo add-apt-repository ppa:brightbox/ruby-ng -y
-RUN sudo add-apt-repository ppa:apt-fast/stable -y
+#RUN sudo add-apt-repository ppa:apt-fast/stable -y
 RUN sudo apt-get install -y dirmngr gnupg
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 RUN sudo apt-get install -y apt-transport-https ca-certificates
@@ -30,7 +30,7 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-RUN sudo apt-get -y install apt-fast aria2 youtube-dl
+RUN sudo apt-get -y install aria2 youtube-dl
 RUN sudo apt-get update
 RUN apt-get upgrade -y
 RUN apt-get dist-upgrade -y
