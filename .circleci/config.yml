@@ -9,6 +9,7 @@ jobs:
           name: Install and Update Packages
           command: |
             echo 'Asia/Jakarta' > /etc/timezone
+            export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
             apt update
             apt upgrade -yqq
             apt install -yqq sudo curl wget netcat whois figlet apt-utils software-properties-common
