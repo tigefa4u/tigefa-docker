@@ -11,15 +11,34 @@ RUN export LC_ALL="en_US.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US:en"
 RUN locale
 RUN sudo add-apt-repository ppa:jonathonf/backports -y
 RUN sudo add-apt-repository ppa:jonathonf/aria2 -y
+# RUN sudo add-apt-repository ppa:jonathonf/python-2.7 -y
+RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
 RUN sudo add-apt-repository ppa:mc3man/xerus-media -y
 RUN sudo add-apt-repository ppa:mc3man/mpv-tests -y
-RUN sudo add-apt-repository ppa:git-core/candidate -y
+RUN sudo add-apt-repository ppa:git-core/ppa -y
 RUN sudo add-apt-repository ppa:mercurial-ppa/releases -y
 RUN sudo add-apt-repository ppa:dominik-stadler/subversion-1.9 -y
 RUN sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 RUN sudo add-apt-repository ppa:longsleep/golang-backports -y
 RUN sudo add-apt-repository ppa:brightbox/ruby-ng -y
 RUN sudo add-apt-repository ppa:apt-fast/stable -y
+RUN sudo add-apt-repository ppa:numix/ppa -y
+RUN sudo add-apt-repository ppa:numix/numix-daily -y
+RUN sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-unstable -y
+RUN sudo add-apt-repository ppa:gnome-terminator/nightly-gtk3 -y
+RUN sudo add-apt-repository ppa:noobslab/macbuntu -y
+RUN sudo add-apt-repository ppa:noobslab/icons -y
+RUN sudo add-apt-repository ppa:noobslab/themes -y
+RUN sudo add-apt-repository ppa:transmissionbt/ppa -y
+RUN sudo add-apt-repository ppa:wfg/0ad -y
+RUN sudo add-apt-repository ppa:obsproject/obs-studio -y
+RUN sudo add-apt-repository ppa:peek-developers/stable -y
+RUN sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y
+RUN sudo add-apt-repository ppa:uget-team/ppa -y
+RUN sudo add-apt-repository ppa:clipgrab-team/ppa -y
+RUN sudo add-apt-repository ppa:neovim-ppa/stable -y
+RUN sudo add-apt-repository ppa:certbot/certbot -y
+RUN sudo add-apt-repository ppa:chris-lea/redis-server -y
 RUN sudo apt-get install -y dirmngr gnupg
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 RUN sudo apt-get install -y apt-transport-https ca-certificates
