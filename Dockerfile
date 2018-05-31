@@ -19,7 +19,7 @@ RUN sudo add-apt-repository ppa:dominik-stadler/subversion-1.9 -y
 RUN sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 RUN sudo add-apt-repository ppa:longsleep/golang-backports -y
 RUN sudo add-apt-repository ppa:brightbox/ruby-ng -y
-#RUN sudo add-apt-repository ppa:apt-fast/stable -y
+RUN sudo add-apt-repository ppa:apt-fast/stable -y
 RUN sudo apt-get install -y dirmngr gnupg
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 RUN sudo apt-get install -y apt-transport-https ca-certificates
@@ -58,7 +58,7 @@ RUN sudo apt-get install -y libunwind8-dev libelf-dev libdwarf-dev
 RUN sudo apt-get install -y inotify-hookable inotify-tools libinotifytools0-dev iwatch hhvm-dev valgrind libev-dev libevhtp-dev libevent-dev
 
 # Build
-RUN cd /tmp && git clone -b v2018.05.07.00 https://github.com/facebook/folly.git && cd folly && mkdir _build && cd _build && cmake configure .. && make -j $(nproc) && sudo make install
+# RUN cd /tmp && git clone -b v2018.05.07.00 https://github.com/facebook/folly.git && cd folly && mkdir _build && cd _build && cmake configure .. && make -j $(nproc) && sudo make install
 
 # Print tool versions
 RUN bash --version | head -n 1
