@@ -1,5 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Sugeng Tigefa <sugeng@tigefa.space>
+LABEL org.label-schema.vcs-url="https://github.com/tigefa4u/tigefa-docker"
 ENV DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 COPY sources.list /etc/apt/sources.list
 RUN apt update
