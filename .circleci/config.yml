@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:latest
+      - image: tigefa/bionic
     steps:
       - checkout
       - run:
