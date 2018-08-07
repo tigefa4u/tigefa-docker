@@ -1,9 +1,10 @@
-FROM ubuntu:16.04
+#FROM ubuntu:16.04
+FROM buildpack-deps:xenial
 MAINTAINER Sugeng Tigefa <sugeng@tigefa.space>
-LABEL org.label-schema.vcs-url="https://github.com/tigefa4u/tigefa-docker"
 ENV DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 COPY sources.list /etc/apt/sources.list
 RUN apt update
+RUN apt-get install -y apt-utils
 RUN apt upgrade -y
 RUN apt install -y sudo curl wget apt-utils language-pack-gnome-en language-pack-gnome-id command-not-found command-not-found-data gnupg gnupg-agent gnupg2 apt-transport-https ca-certificates software-properties-common tzdata
 RUN locale-gen en_US
@@ -64,7 +65,7 @@ RUN sudo apt-get install -y golang golang-go
 RUN sudo apt-get install -y dirmngr gnupg p7zip p7zip-full ruby ruby-dev
 RUN sudo apt-get install -y build-essential git libsecret-1-dev fakeroot rpm libx11-dev libxkbfile-dev git-all subversion mercurial
 RUN sudo apt-get install -y libxml2-dev libcppunit-dev autoconf automake autotools-dev autopoint libtool nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev zlib1g-dev libsqlite3-dev pkg-config libgpg-error-dev libssl-dev libexpat1-dev
-RUN sudo apt-get build-dep -y aria2 php hhvm
+RUN sudo apt-get build-dep -y aria2 php hhvm chromium-browser
 RUN sudo apt-get install -y landscape*
 RUN sudo apt-get install -y coreutils util-linux bsdutils file openssl ca-certificates ssh wget patch sudo htop dstat vim nano tmux curl git jq realpath zsh ksh xz-utils build-essential bash-completion
 RUN sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
